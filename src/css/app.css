@@ -9,3 +9,11 @@
   font-style: normal;
   font-weight: bold;
 }
+
+.text-body1 {
+  font-size: 19px;
+}
+
+.q-item__label--caption {
+  font-size: 15px;
+}
