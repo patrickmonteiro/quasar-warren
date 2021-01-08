@@ -1,9 +1,6 @@
 <template>
   <div class="q-pt-lg">
-    <span class="text-h6 text-bold">Últimas movimentações</span>
-    <p class="text-h6 text-grey q-mt-md">Não há movimentações</p>
-
-    <q-list separator class="rounded-borders q-pb-xl">
+    <q-list separator class="rounded-borders q-pb-sm">
       <q-item clickable v-ripple class="bg-white rounded-borders q-py-md">
         <q-item-section avatar>
           <warren-icon />
@@ -64,7 +61,7 @@ export default {
       active: true,
       items: [
         {
-          color: 'primary',
+          color: 'positive',
           icon: 'mdi-help',
           title: 'Dúvidas',
           route: '/test'
