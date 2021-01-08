@@ -27,13 +27,14 @@
       </q-toolbar>
     </q-header>
 
-    <q-footer reveal>
+    <q-footer>
       <q-tabs
         v-model="tab"
         dense
         no-caps
-        class="bg-white text-weight-thin text-grey-8"
-        active-color="text-dark"
+        indicator-color="white"
+        class="bg-white text-weight-thin text-grey-7"
+        active-color="dark"
       >
         <q-route-tab
           name="mails"
@@ -65,10 +66,8 @@
 
     <q-drawer
       v-model="leftDrawerOpen"
-      show-if-above
       bordered
-      content-class="bg-grey-1 window-width"
-
+      :content-class="$q.screen.lt.sm ? 'window-width bg-grey-1' : 'bg-grey-1'"
     >
       <q-list>
         <q-item-label
@@ -85,7 +84,7 @@
       </q-list>
     </q-drawer>
 
-    <q-page-container class="bg-secondary">
+    <q-page-container :class="$q.screen.lt.sm ? 'bg-secondary' : 'bg-white'">
       <router-view />
     </q-page-container>
   </q-layout>

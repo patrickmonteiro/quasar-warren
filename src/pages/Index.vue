@@ -1,20 +1,29 @@
 <template>
   <q-page padding>
-    <overview />
-    <line-overview />
     <div class="row">
-      <div class="col-12 q-pt-xl">
-        <q-btn
-          color="primary"
-          label="Fazer Transação"
-          class="text-bold"
-          rounded
-          unelevated
-        />
+      <div class="col-md-8 col-sm-12 col-xs-12">
+        <overview />
+        <line-overview />
+
+        <div class="row">
+          <div class="col-12 q-pt-xl">
+            <q-btn
+              color="primary"
+              label="Fazer Transação"
+              class="text-bold"
+              rounded
+              unelevated
+            />
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <list-section />
+        <list-product />
       </div>
     </div>
-    <list-section />
-    <list-product />
   </q-page>
 </template>
 

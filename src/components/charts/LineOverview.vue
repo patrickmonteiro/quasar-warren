@@ -1,6 +1,6 @@
 <template>
   <div id="chart">
-    <apexchart type="line" height="150" :options="chartOptions" :series="series" />
+    <apexchart type="line" :height="$q.screen.lt.sm ? '150' : '350'" :options="chartOptions" :series="series" />
     <q-btn
       v-for="(btn, index) in period"
       :key="index"
