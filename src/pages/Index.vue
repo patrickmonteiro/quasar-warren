@@ -22,6 +22,7 @@
       <div class="col-md-4 col-sm-12 col-xs-12">
         <list-section />
         <list-product />
+        <list-latest-moves />
       </div>
     </div>
   </q-page>
@@ -34,7 +35,8 @@ export default {
     Overview: () => import('components/Overview'),
     LineOverview: () => import('components/charts/LineOverview'),
     ListSection: () => import('components/lists/ListSection'),
-    ListProduct: () => import('components/lists/ListProduct')
+    ListProduct: () => import('components/lists/ListProduct'),
+    ListLatestMoves: () => import('components/lists/ListLatestMoves')
   }
 }
 </script>
