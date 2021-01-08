@@ -6,7 +6,7 @@
 
         <q-icon class="float-right" name="fas fa-eye" color="dark" />
       </p>
-      <p class="text-h4 text-weight-bold q-ma-none">
+      <p class="text-h4 text-weight-bolder q-ma-none">
         R$ 4.122,63
       </p>
       <div>

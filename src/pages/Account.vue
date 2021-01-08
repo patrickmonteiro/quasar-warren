@@ -17,7 +17,8 @@
         </div>
       </div>
       <div class="col-md-4 col-sm-12 col-xs-12">
-          <list-account-section> </list-account-section>
+        <list-account-latest-moves />
+        <list-account-section />
       </div>
     </div>
   </q-page>
@@ -29,7 +30,9 @@ export default {
   components: {
     AccountOverview: () => import('components/AccountOverview'),
     LineAccountOverview: () => import('components/charts/LineAccountOverview'),
-    ListAccountSection: () => import('components/lists/ListAccountSection')
+    ListAccountSection: () => import('components/lists/ListAccountSection'),
+    ListAccountLatestMoves: () =>
+      import('components/lists/ListAccountLatestMoves')
   }
 }
 </script>
