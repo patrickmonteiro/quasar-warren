@@ -9,10 +9,16 @@
         class="bg-white rounded-borders q-py-md"
       >
         <q-item-section avatar>
-          <q-avatar :color="item.color" text-color="white" :icon="item.icon" />
+          <q-avatar
+            size="md"
+            :color="item.color"
+            text-color="white"
+            :icon="item.icon"
+            font-size="20px"
+          />
         </q-item-section>
         <q-item-section>
-          <q-item-label class="text-body1"> {{ item.title }}</q-item-label>
+          <q-item-label class="text-subtitle1"> {{ item.title }}</q-item-label>
         </q-item-section>
         <q-item-section side>
           <div class="text-dark text-body1">
