@@ -7,12 +7,12 @@ A dashboard based on the Warren platform made with Quasar Framework
 
 ## Print
 
-[![N|Solid](https://github.com/patrickmonteiro/quasar-warren/blob/master/docs/print.png?raw=true)](http://quasar-warren.surge.sh/)
+[![N|Solid](https://github.com/patrickmonteiro/quasar-warren/blob/master/docs/print.png?raw=true)](https://quasar-warren.surge.sh/)
 
 
 ## Demo
 
-http://quasar-warren.surge.sh/
+https://quasar-warren.surge.sh/
 
 ## Install the dependencies
 ```bash
