@@ -11,7 +11,21 @@
           <strong> P </strong>
         </q-avatar>
 
-        <q-toolbar-title> </q-toolbar-title>
+        <q-toolbar-title>
+          <q-tabs
+            align="justify"
+            indicator-color="dark"
+            class="bg-secondary text-grey-7 gt-xs"
+            active-color="dark"
+          >
+            <q-route-tab
+              v-for="(tab, index) in tabs"
+              :key="index"
+              :label="tab.title"
+              :to="tab.route"
+            />
+          </q-tabs>
+        </q-toolbar-title>
 
         <q-avatar
           color="dark"
@@ -24,9 +38,8 @@
       </q-toolbar>
     </q-header>
 
-    <q-footer>
+    <q-footer class="lt-sm">
       <q-tabs
-        v-model="tab"
         dense
         no-caps
         indicator-color="white"
@@ -34,37 +47,50 @@
         active-color="dark"
       >
         <q-route-tab
-          name="mails"
-          icon="mdi-home"
-          label="Visão Geral"
+          v-for="(tab, index) in tabs"
+          :key="index"
+          :icon="tab.icon"
+          :label="tab.title"
           content-class="text-weight-thin"
-          to="/"
-        />
-        <q-route-tab
-          name="alarms"
-          icon="fas fa-money-bill-wave"
-          label="Conta"
-          to="/cash"
-        />
-        <q-route-tab name="movies" icon="mdi-poll" label="Carteiras" to="/" />
-        <q-route-tab
-          name="movies"
-          icon="mdi-chart-timeline"
-          label="Trade"
-          to="/"
+          :to="tab.route"
         />
       </q-tabs>
     </q-footer>
 
     <q-drawer
       v-model="leftDrawerOpen"
-      bordered
-      :content-class="$q.screen.lt.sm ? 'window-width bg-grey-1' : 'bg-grey-1'"
+      overlay
+      elevated
+      width="360"
+      behavior="mobile"
+      :content-class="$q.screen.lt.sm ? 'window-width bg-secondary' : 'bg-white'"
     >
       <q-list>
-        <q-item-label header class="text-grey-8">
-          Essential Links
-        </q-item-label>
+        <q-item class="bg-secondary">
+          <!-- <q-item-section avatar>
+            <q-btn
+              icon="mdi-close"
+              dense
+              flat
+              @click="leftDrawerOpen = !leftDrawerOpen"
+            />
+          </q-item-section> -->
+          <q-item-section>
+          <q-item-label header class="text-dark text-weight-bolder">
+            <div class="absolute-left q-pt-md q-pl-md">
+               <q-btn
+                  icon="mdi-close"
+                  dense
+                  flat
+                  @click="leftDrawerOpen = !leftDrawerOpen"
+                />
+            </div>
+            <div class="text-center">
+              Menu
+            </div>
+          </q-item-label>
+          </q-item-section>
+        </q-item>
         <EssentialLink
           v-for="link in essentialLinks"
           :key="link.title"
@@ -84,46 +110,46 @@ import EssentialLink from 'components/EssentialLink.vue'
 
 const linksData = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
+    title: 'NOTIFICAÇÕES',
+    icon: 'fas fa-chevron-right',
+    route: '/',
+    bold: true
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
+    title: 'MINHA CONTA',
+    icon: 'fas fa-chevron-right',
+    route: '/',
+    bold: true
   },
   {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
+    title: 'Meus investimentos',
+    route: '/',
+    bold: false
   },
   {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
+    title: 'Custos',
+    route: '/',
+    bold: false
   },
   {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
+    title: 'Previdência',
+    route: '/',
+    bold: false
   },
   {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
+    title: 'Warren News',
+    route: '/',
+    bold: false
   },
   {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
+    title: 'Me Ajuda',
+    route: '/',
+    bold: false
+  },
+  {
+    title: 'Segurança',
+    route: '/',
+    bold: false
   }
 ]
 
@@ -134,7 +160,28 @@ export default {
     return {
       leftDrawerOpen: false,
       essentialLinks: linksData,
-      tab: ''
+      tabs: [
+        {
+          title: 'Visão Geral',
+          icon: 'mdi-home',
+          route: '/'
+        },
+        {
+          title: 'Conta',
+          icon: 'fas fa-money-bill-wave',
+          route: '/cash'
+        },
+        {
+          title: 'Carteiras',
+          icon: 'mdi-poll',
+          route: '/'
+        },
+        {
+          title: 'Trade',
+          icon: 'mdi-chart-timeline',
+          route: '/'
+        }
+      ]
     }
   }
 }
