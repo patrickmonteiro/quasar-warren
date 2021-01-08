@@ -1,0 +1,11 @@
+/* app global css */
+@font-face {
+  font-family: montserrat;
+  src: url(./fonts/montserrat-v15-latin-regular.woff);
+}
+
+.montserrat {
+  font-family: 'montserrat';
+  font-style: normal;
+  font-weight: bold;
+}
