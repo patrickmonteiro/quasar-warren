@@ -11,8 +11,7 @@
           <strong> P </strong>
         </q-avatar>
 
-        <q-toolbar-title>
-        </q-toolbar-title>
+        <q-toolbar-title> </q-toolbar-title>
 
         <q-avatar
           color="dark"
@@ -20,9 +19,7 @@
           size="md"
           @click="leftDrawerOpen = !leftDrawerOpen"
         >
-          <q-icon
-            name="fas fa-gift"
-          />
+          <q-icon name="fas fa-gift" />
         </q-avatar>
       </q-toolbar>
     </q-header>
@@ -47,14 +44,9 @@
           name="alarms"
           icon="fas fa-money-bill-wave"
           label="Conta"
-          to="/"
+          to="/cash"
         />
-        <q-route-tab
-          name="movies"
-          icon="mdi-poll"
-          label="Carteiras"
-          to="/"
-        />
+        <q-route-tab name="movies" icon="mdi-poll" label="Carteiras" to="/" />
         <q-route-tab
           name="movies"
           icon="mdi-chart-timeline"
@@ -70,10 +62,7 @@
       :content-class="$q.screen.lt.sm ? 'window-width bg-grey-1' : 'bg-grey-1'"
     >
       <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
+        <q-item-label header class="text-grey-8">
           Essential Links
         </q-item-label>
         <EssentialLink
