@@ -16,13 +16,13 @@
             />
           </div>
         </div>
-
       </div>
 
       <div class="col-md-4 col-sm-12 col-xs-12">
         <list-section />
         <list-product />
         <list-latest-moves />
+        <list-help-options :items="items"> </list-help-options>
       </div>
     </div>
   </q-page>
@@ -36,7 +36,26 @@ export default {
     LineOverview: () => import('components/charts/LineOverview'),
     ListSection: () => import('components/lists/ListSection'),
     ListProduct: () => import('components/lists/ListProduct'),
-    ListLatestMoves: () => import('components/lists/ListLatestMoves')
+    ListLatestMoves: () => import('components/lists/ListLatestMoves'),
+    ListHelpOptions: () => import('components/lists/ListHelpOptions')
+  },
+  data () {
+    return {
+      items: [
+        {
+          color: 'primary',
+          icon: 'mdi-clock-outline',
+          title: 'Históricos de rendimentos',
+          route: '/history'
+        },
+        {
+          color: 'primary',
+          icon: 'mdi-help',
+          title: 'Dúvidas',
+          route: '/test'
+        }
+      ]
+    }
   }
 }
 </script>
