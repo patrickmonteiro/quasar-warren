@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pt-lg">
+  <div class="q-pt-lg q-pb-sm">
     <span class="text-h6 text-bold q-pl-sm">Últimas movimentações</span>
     <q-list separator class="rounded-borders">
       <q-item
