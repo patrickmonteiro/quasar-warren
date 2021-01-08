@@ -19,6 +19,7 @@
       <div class="col-md-4 col-sm-12 col-xs-12">
         <list-account-latest-moves />
         <list-account-section />
+        <list-help-options :items="items"> </list-help-options>
       </div>
     </div>
   </q-page>
@@ -32,7 +33,20 @@ export default {
     LineAccountOverview: () => import('components/charts/LineAccountOverview'),
     ListAccountSection: () => import('components/lists/ListAccountSection'),
     ListAccountLatestMoves: () =>
-      import('components/lists/ListAccountLatestMoves')
+      import('components/lists/ListAccountLatestMoves'),
+    ListHelpOptions: () => import('components/lists/ListHelpOptions')
+  },
+  data () {
+    return {
+      items: [
+        {
+          color: 'positive',
+          icon: 'mdi-help',
+          title: 'Dúvidas',
+          route: '/test'
+        }
+      ]
+    }
   }
 }
 </script>
