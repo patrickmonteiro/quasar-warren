@@ -174,7 +174,7 @@ export default {
         {
           title: 'Carteiras',
           icon: 'mdi-poll',
-          route: '/'
+          route: '/wealth'
         },
         {
           title: 'Trade',
