@@ -1,0 +1,56 @@
+<template>
+  <q-page padding>
+    <div class="row">
+      <div class="col-md-8 col-sm-12 col-xs-12">
+        <wealth-overview />
+        <bar-wealth-overview />
+
+        <div class="row">
+          <div class="col-12 q-pt-xl">
+            <q-btn
+              color="warning"
+              label="Depositar"
+              class="text-bold"
+              rounded
+              unelevated
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <list-wealth-product />
+        <my-wealth />
+        <list-wealth-latest-moves />
+        <list-help-options :items="items"> </list-help-options>
+      </div>
+    </div>
+  </q-page>
+</template>
+
+<script>
+export default {
+  name: 'PageWealth',
+  components: {
+    WealthOverview: () => import('components/WealthOverview'),
+    BarWealthOverview: () => import('components/charts/BarWealthOverview'),
+    ListWealthProduct: () => import('components/lists/ListWealthProduct'),
+    ListWealthLatestMoves: () =>
+      import('components/lists/ListWealthLatestMoves'),
+    ListHelpOptions: () => import('components/lists/ListHelpOptions'),
+    MyWealth: () => import('components/MyWealth')
+  },
+  data () {
+    return {
+      items: [
+        {
+          color: 'warning',
+          icon: 'mdi-help',
+          title: 'Dúvidas',
+          route: '/test'
+        }
+      ]
+    }
+  }
+}
+</script>
