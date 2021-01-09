@@ -94,7 +94,14 @@
 
     <q-page-container :class="$q.screen.lt.sm ? 'bg-secondary' : 'bg-white'">
       <skeleton v-if="loading" />
-      <router-view v-show="!loading" />
+      <transition
+         v-else
+        appear
+        enter-active-class="animated fadeIn"
+        leave-active-class="animated fadeOut"
+      >
+        <router-view />
+      </transition>
     </q-page-container>
   </q-layout>
 </template>
