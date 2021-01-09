@@ -40,6 +40,7 @@
 
     <q-footer class="lt-sm">
       <q-tabs
+        align="justify"
         dense
         no-caps
         indicator-color="white"
