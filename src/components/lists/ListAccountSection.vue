@@ -1,5 +1,5 @@
 <template>
-  <div class="q-pt-lg">
+  <div class="q-pt-lg q-pb-sm">
     <q-list separator class="rounded-borders q-pb-sm">
       <q-item clickable v-ripple class="bg-white rounded-borders q-py-md">
         <q-item-section avatar>
@@ -45,7 +45,6 @@
         </q-item-section>
       </q-item>
     </q-list>
-    <list-help-options :items="items"> </list-help-options>
   </div>
 </template>
 
@@ -53,20 +52,11 @@
 export default {
   name: 'ListSection',
   components: {
-    ListHelpOptions: () => import('components/lists/ListHelpOptions'),
     WarrenIcon: () => import('components/WarrenIcon')
   },
   data () {
     return {
       active: true,
-      items: [
-        {
-          color: 'positive',
-          icon: 'mdi-help',
-          title: 'Dúvidas',
-          route: '/test'
-        }
-      ],
       sections: [
         {
           title: '0001',
