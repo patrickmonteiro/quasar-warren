@@ -20,6 +20,7 @@
 
       <div class="col-md-4 col-sm-12 col-xs-12">
         <list-wealth-product />
+        <my-wealth />
         <list-wealth-latest-moves />
         <list-help-options :items="items"> </list-help-options>
       </div>
@@ -34,8 +35,10 @@ export default {
     WealthOverview: () => import('components/WealthOverview'),
     BarWealthOverview: () => import('components/charts/BarWealthOverview'),
     ListWealthProduct: () => import('components/lists/ListWealthProduct'),
-    ListWealthLatestMoves: () => import('components/lists/ListWealthLatestMoves'),
-    ListHelpOptions: () => import('components/lists/ListHelpOptions')
+    ListWealthLatestMoves: () =>
+      import('components/lists/ListWealthLatestMoves'),
+    ListHelpOptions: () => import('components/lists/ListHelpOptions'),
+    MyWealth: () => import('components/MyWealth')
   },
   data () {
     return {
