@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-8 col-sm-12 col-xs-12">
         <account-overview />
-        <line-account-overview />
+        <line-account-overview :colorBars="'positive'" />
         <div class="row">
           <div class="col-12 q-pt-xl">
             <q-btn
@@ -32,8 +32,7 @@ export default {
     AccountOverview: () => import('components/AccountOverview'),
     LineAccountOverview: () => import('components/charts/LineAccountOverview'),
     ListAccountSection: () => import('components/lists/ListAccountSection'),
-    ListAccountLatestMoves: () =>
-      import('components/lists/ListAccountLatestMoves'),
+    ListAccountLatestMoves: () => import('components/lists/ListAccountLatestMoves'),
     ListHelpOptions: () => import('components/lists/ListHelpOptions')
   },
   data () {

@@ -1,7 +1,7 @@
 <template>
   <div id="chart">
     <apexchart
-      type="line"
+      type="bar"
       :height="$q.screen.lt.sm ? '150' : '350'"
       :options="chartOptions"
       :series="series"
@@ -23,16 +23,22 @@
 import { colors } from 'quasar'
 export default {
   name: 'BarWealthOverviewChart',
+  props: {
+    colorBars: {
+      type: String,
+      default: 'warning',
+      required: false
+    }
+  },
   data () {
     return {
       period: ['30D', '3M', '6M', '12M', 'TUDO'],
-      series: [
-        {
-          data: [10, -10, 10, 10, 10, 62, 69, 75, 80, 75]
-        }
-      ],
+      series: [{
+        name: 'Inflation',
+        data: [10, 40, 15, 10, 13, 90, 30, 20, 30, 15, 14, 50]
+      }],
       chartOptions: {
-        colors: [colors.getBrand('warning'), '#17ead9', '#f02fc2'],
+        colors: [colors.getBrand(this.colorBars), '#17ead9', '#f02fc2'],
         chart: {
           toolbar: {
             show: false
@@ -41,9 +47,16 @@ export default {
         dataLabels: {
           enabled: false
         },
+        plotOptions: {
+          bar: {
+            horizontal: false,
+            columnWidth: '35%'
+          }
+        },
         stroke: {
-          curve: 'straight',
-          width: 3
+          show: true,
+          width: 2,
+          colors: ['transparent']
         },
         // title: {
         //   text: 'Product Trends by Month',

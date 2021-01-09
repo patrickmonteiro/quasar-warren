@@ -62,20 +62,12 @@
       v-model="leftDrawerOpen"
       overlay
       elevated
-      width="360"
+      :width="360"
       behavior="mobile"
       :content-class="$q.screen.lt.sm ? 'window-width bg-secondary' : 'bg-white'"
     >
       <q-list>
         <q-item class="bg-secondary">
-          <!-- <q-item-section avatar>
-            <q-btn
-              icon="mdi-close"
-              dense
-              flat
-              @click="leftDrawerOpen = !leftDrawerOpen"
-            />
-          </q-item-section> -->
           <q-item-section>
           <q-item-label header class="text-dark text-weight-bolder">
             <div class="absolute-left q-pt-md q-pl-md">
@@ -101,14 +93,14 @@
     </q-drawer>
 
     <q-page-container :class="$q.screen.lt.sm ? 'bg-secondary' : 'bg-white'">
-      <router-view />
+      <skeleton v-if="loading" />
+      <router-view v-else />
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
 import EssentialLink from 'components/EssentialLink.vue'
-
 const linksData = [
   {
     title: 'NOTIFICAÇÕES',
@@ -156,9 +148,23 @@ const linksData = [
 
 export default {
   name: 'MainLayout',
-  components: { EssentialLink },
+  components: {
+    EssentialLink,
+    Skeleton: () => import('pages/Skeleton')
+  },
+  watch: {
+    $route (val) {
+      if (val.meta.skeleton) {
+        this.loading = true
+        setTimeout(() => {
+          this.loading = false
+        }, 750)
+      }
+    }
+  },
   data () {
     return {
+      loading: false,
       leftDrawerOpen: false,
       essentialLinks: linksData,
       tabs: [

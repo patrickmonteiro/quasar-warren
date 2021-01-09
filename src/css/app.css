@@ -1,4 +1,11 @@
 /* app global css */
+
+:root {
+  --bg-dark: #171837;
+  --bg-secondary: #171837;
+  --dark: #27274C;
+}
+
 @font-face {
   font-family: montserrat;
   src: url(./fonts/montserrat-v15-latin-regular.woff);
@@ -16,4 +23,10 @@
 
 .q-item__label--caption {
   font-size: 15px;
+}
+
+body.body--dark {
+  background: var(--bg-dark);
+  --q-color-dark: #FFF !important;
+  --q-color-secondary: var(--bg-dark) !important;
 }
