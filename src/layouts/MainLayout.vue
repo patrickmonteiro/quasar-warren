@@ -94,13 +94,14 @@
 
     <q-page-container :class="$q.screen.lt.sm ? 'bg-secondary' : 'bg-white'">
       <skeleton v-if="loading" />
-      <router-view v-else />
+      <router-view v-show="!loading" />
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
 import EssentialLink from 'components/EssentialLink.vue'
+import Skeleton from 'pages/Skeleton.vue'
 const linksData = [
   {
     title: 'NOTIFICAÇÕES',
@@ -150,7 +151,7 @@ export default {
   name: 'MainLayout',
   components: {
     EssentialLink,
-    Skeleton: () => import('pages/Skeleton')
+    Skeleton
   },
   watch: {
     $route (val) {
