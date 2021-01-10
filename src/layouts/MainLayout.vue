@@ -92,7 +92,7 @@
       </q-list>
     </q-drawer>
 
-    <q-page-container :class="$q.screen.lt.sm ? 'bg-secondary' : 'bg-white'">
+    <q-page-container :class="$q.screen.lt.sm ? 'bg-secondary' : 'bg-white bg-padding'">
       <skeleton v-if="loading" />
       <transition
          v-else
@@ -201,3 +201,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.bg-padding {
+  padding: 0 240px;
+}
+</style>
