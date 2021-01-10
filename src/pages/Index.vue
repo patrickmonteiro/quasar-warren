@@ -19,10 +19,12 @@
       </div>
 
       <div class="col-md-4 col-sm-12 col-xs-12">
-        <list-section />
-        <list-product />
-        <list-latest-moves />
-        <list-help-options :items="items"> </list-help-options>
+        <scroll-page>
+          <list-section />
+          <list-product />
+          <list-latest-moves />
+          <list-help-options :items="items"> </list-help-options>
+        </scroll-page>
       </div>
     </div>
   </q-page>
@@ -37,7 +39,8 @@ export default {
     ListSection: () => import('components/lists/ListSection'),
     ListProduct: () => import('components/lists/ListProduct'),
     ListLatestMoves: () => import('components/lists/ListLatestMoves'),
-    ListHelpOptions: () => import('components/lists/ListHelpOptions')
+    ListHelpOptions: () => import('components/lists/ListHelpOptions'),
+    ScrollPage: () => import('components/scroll/ScrollPage')
   },
   data () {
     return {
@@ -55,6 +58,14 @@ export default {
           route: '/test'
         }
       ]
+      // thumbStyle: {
+      //   // display: 'none'
+      //   width: '10px'
+      // },
+      // barStyle: {
+      //   // display: 'none'
+      //   width: '20px'
+      // }
     }
   }
 }

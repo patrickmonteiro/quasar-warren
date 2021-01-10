@@ -19,10 +19,12 @@
       </div>
 
       <div class="col-md-4 col-sm-12 col-xs-12">
-        <list-wealth-product />
-        <my-wealth />
-        <list-wealth-latest-moves />
-        <list-help-options :items="items"> </list-help-options>
+        <scroll-page>
+          <list-wealth-product />
+          <my-wealth />
+          <list-wealth-latest-moves />
+          <list-help-options :items="items"> </list-help-options>
+        </scroll-page>
       </div>
     </div>
   </q-page>
@@ -38,7 +40,8 @@ export default {
     ListWealthLatestMoves: () =>
       import('components/lists/ListWealthLatestMoves'),
     ListHelpOptions: () => import('components/lists/ListHelpOptions'),
-    MyWealth: () => import('components/MyWealth')
+    MyWealth: () => import('components/MyWealth'),
+    ScrollPage: () => import('components/scroll/ScrollPage')
   },
   data () {
     return {

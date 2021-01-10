@@ -17,9 +17,11 @@
         </div>
       </div>
       <div class="col-md-4 col-sm-12 col-xs-12">
-        <list-account-latest-moves />
-        <list-account-section />
-        <list-help-options :items="items"> </list-help-options>
+        <scroll-page>
+          <list-account-latest-moves />
+          <list-account-section />
+          <list-help-options :items="items"> </list-help-options>
+        </scroll-page>
       </div>
     </div>
   </q-page>
@@ -33,7 +35,8 @@ export default {
     LineAccountOverview: () => import('components/charts/LineAccountOverview'),
     ListAccountSection: () => import('components/lists/ListAccountSection'),
     ListAccountLatestMoves: () => import('components/lists/ListAccountLatestMoves'),
-    ListHelpOptions: () => import('components/lists/ListHelpOptions')
+    ListHelpOptions: () => import('components/lists/ListHelpOptions'),
+    ScrollPage: () => import('components/scroll/ScrollPage')
   },
   data () {
     return {
