@@ -5,7 +5,7 @@
 
 A dashboard based on the Warren platform made with Quasar Framework
 
-## Print
+## Screens
 
 [![N|Solid](https://github.com/patrickmonteiro/quasar-warren/blob/master/docs/telas.gif?raw=true)](https://quasar-warren.surge.sh/)
 
