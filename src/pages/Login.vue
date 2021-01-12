@@ -108,6 +108,7 @@ export default {
         // we're done, we reset loading state
         this[`loading${number}`] = false
         this.login = true
+        this.$router.push({ name: 'dashboard' })
       }, 3000)
     }
   }

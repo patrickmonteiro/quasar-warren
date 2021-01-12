@@ -22,7 +22,7 @@
               v-for="(tab, index) in tabs"
               :key="index"
               :label="tab.title"
-              :to="tab.route"
+              :to="{ name: tab.route }"
             />
           </q-tabs>
         </q-toolbar-title>
@@ -53,7 +53,7 @@
           :icon="tab.icon"
           :label="tab.title"
           content-class="text-weight-thin"
-          :to="tab.route"
+          :to="{ name: tab.route }"
         />
       </q-tabs>
     </q-footer>
@@ -179,22 +179,22 @@ export default {
         {
           title: 'Visão Geral',
           icon: 'mdi-home',
-          route: '/'
+          route: 'dashboard'
         },
         {
           title: 'Conta',
           icon: 'fas fa-money-bill-wave',
-          route: '/cash'
+          route: 'cash'
         },
         {
           title: 'Carteiras',
           icon: 'mdi-poll',
-          route: '/wealth'
+          route: 'wealth'
         },
         {
           title: 'Trade',
           icon: 'mdi-chart-timeline',
-          route: '/trade'
+          route: 'trade'
         }
       ]
     }
