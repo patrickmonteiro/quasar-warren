@@ -28,10 +28,16 @@
       >
         Acessar minha conta
       </div>
-      <label>E-mail</label>
-      <q-input filled bottom-slots v-model="text">
+      <label v-if="!login">E-mail</label>
+      <q-input v-if="!login" filled bottom-slots v-model="email">
         <template v-slot:prepend>
           <q-icon name="email" />
+        </template>
+      </q-input>
+      <label v-if="login">Senha</label>
+      <q-input v-if="login" filled bottom-slots v-model="password">
+        <template v-slot:prepend>
+          <q-icon name="lock" />
         </template>
       </q-input>
       <!-- <q-btn
@@ -42,7 +48,7 @@
         label="Continuar"
       /> -->
       <q-btn
-        class="btn-login"
+        id="btn-login"
         rounded
         color="positive"
         size="xl"
@@ -60,15 +66,15 @@
           <div class="row justify-center q-gutter-lg">
             <div class="col-5">
               <q-btn
-                class="float-right"
+                class="float-right "
                 size="18.7px"
                 round
                 color="blue-10"
-                icon="facebook"
+                icon="fab fa-facebook-f"
               />
             </div>
             <div class="col-5">
-              <q-btn size="18.7px" round color="black" icon="home" />
+              <q-btn class="" size="18.7px" round color="black" icon="fab fa-apple" />
             </div>
             <div class="col-12 q-mt-xl">
               <div
@@ -88,7 +94,9 @@ export default {
   data () {
     return {
       loading1: false,
-      text: ''
+      email: '',
+      password: '',
+      login: false
     }
   },
   methods: {
@@ -99,24 +107,26 @@ export default {
       setTimeout(() => {
         // we're done, we reset loading state
         this[`loading${number}`] = false
+        this.login = true
       }, 3000)
     }
   }
 }
 </script>
-<style>
-.container-logo {
+<style scoped>
+div.container-logo {
   background-color: #ee2e5d;
 }
 @media screen and (min-width: 320px) and (max-width: 737px) {
-  .container-logo {
+  div.container-logo {
     height: 183px !important;
     width: 100% !important;
   }
 }
-.btn-login span.block {
+#btn-login {
   font-size: 16px !important ;
   font-weight: bold;
+  height: 70px;
 }
 .divider {
   border-top: 1px solid #ebecf3;
