@@ -11,6 +11,11 @@ const routes = [
       { path: 'trade', component: () => import('pages/Trade.vue'), meta: { skeleton: true } }
     ]
   },
+  {
+    path: '/login',
+    name: 'dashboard',
+    component: () => import('pages/Login')
+  },
 
   // Always leave this as last one,
   // but you can also remove it
