@@ -39,12 +39,12 @@
         Acessar minha conta
       </div>
       <label v-if="!login">E-mail</label>
-      <q-input v-if="!login" filled bottom-slots v-model="email">
+      <q-input required v-if="!login" filled bottom-slots v-model="email">
         <template v-slot:prepend>
           <q-icon name="email" />
         </template>
       </q-input>
-      <label v-if="login">Senha</label>
+      <label v-if="login">Senha para {{ email }}</label>
       <q-input v-if="login" filled bottom-slots v-model="password">
         <template v-slot:prepend>
           <q-icon name="lock" />
