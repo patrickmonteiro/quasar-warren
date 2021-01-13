@@ -131,6 +131,9 @@ export default {
       this[`loading${number}`] = true
       setTimeout(() => {
         this[`loading${number}`] = false
+        if (this.login === true) {
+          this.$router.push({ name: 'dashboard' })
+        }
         this.login = true
         this.fade = true
       }, 1000)

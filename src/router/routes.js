@@ -2,21 +2,19 @@
 const routes = [
   {
     path: '/',
-    name: 'dashboard',
-    component: () => import('layouts/MainLayout.vue'),
-    children: [
-      { path: '', component: () => import('pages/Index.vue'), meta: { skeleton: true } },
-      { path: 'cash', component: () => import('pages/Account.vue'), meta: { skeleton: true } },
-      { path: 'wealth', component: () => import('pages/Wealth.vue'), meta: { skeleton: true } },
-      { path: 'trade', component: () => import('pages/Trade.vue'), meta: { skeleton: true } }
-    ]
-  },
-  {
-    path: '/login',
-    name: 'dashboard',
+    name: 'login',
     component: () => import('pages/Login')
   },
-
+  {
+    path: '/app',
+    component: () => import('layouts/MainLayout.vue'),
+    children: [
+      { path: '', name: 'dashboard', component: () => import('pages/Index.vue'), meta: { skeleton: true } },
+      { path: 'cash', name: 'cash', component: () => import('pages/Account.vue'), meta: { skeleton: true } },
+      { path: 'wealth', name: 'wealth', component: () => import('pages/Wealth.vue'), meta: { skeleton: true } },
+      { path: 'trade', name: 'trade', component: () => import('pages/Trade.vue'), meta: { skeleton: true } }
+    ]
+  },
   // Always leave this as last one,
   // but you can also remove it
   {
