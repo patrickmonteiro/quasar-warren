@@ -1,4 +1,7 @@
-
+import Index from 'pages/Index.vue'
+import Account from 'pages/Account.vue'
+import Wealth from 'pages/Wealth.vue'
+import Trade from 'pages/Trade.vue'
 const routes = [
   {
     path: '/',
@@ -9,10 +12,10 @@ const routes = [
     path: '/app',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', name: 'dashboard', component: () => import('pages/Index.vue'), meta: { skeleton: true } },
-      { path: 'cash', name: 'cash', component: () => import('pages/Account.vue'), meta: { skeleton: true } },
-      { path: 'wealth', name: 'wealth', component: () => import('pages/Wealth.vue'), meta: { skeleton: true } },
-      { path: 'trade', name: 'trade', component: () => import('pages/Trade.vue'), meta: { skeleton: true } }
+      { path: '', name: 'dashboard', component: Index, meta: { skeleton: true } },
+      { path: 'cash', name: 'cash', component: Account, meta: { skeleton: true } },
+      { path: 'wealth', name: 'wealth', component: Wealth, meta: { skeleton: true } },
+      { path: 'trade', name: 'trade', component: Trade, meta: { skeleton: true } }
     ]
   },
   // Always leave this as last one,

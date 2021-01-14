@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "A dashboard based on the Warren platform made with Quasar Framework",
   "productName": "Quasar Warren Dashboard",
-  "author": "Patrick Monteiro <eng.patrickmonteiro@gmail.com>",
+  "author": "Patrick Monteiro <eng.patrickmonteiro@gmail.com>,Waldener Junior <jjrr019@gmail.com> ",
   "private": true,
   "scripts": {
     "lint": "eslint --ext .js,.vue ./",
