@@ -1,23 +1,33 @@
 <template>
   <div class="row justify-center" style="height: 100vh">
-    <div class="col-xs-12 col-sm-6 flex container-logo">
-      <div class="column self-center q-mx-auto">
-        <img
-          class="q-mx-auto"
-          src="../assets/app-logo.png"
-          :width="$q.screen.gt.sm ? 'auto' : '50'"
+    <transition name="fade">
+      <div class="col-xs-12 col-sm-6 flex container-logo" v-if="fade">
+        <q-icon
+          v-if="login"
+          name="mdi-arrow-left"
+          class="q-ma-lg absolute-full cursor-pointer"
+          size="21px"
+          color="white"
+          @click="login = !login"
         />
-        <div
-          :class="
-            $q.screen.gt.sm
-              ? 'text-center text-h2 text-weight-bolder text-white'
-              : 'text-center text-h5 text-weight-bolder text-white'
-          "
-        >
-          quasar warren
+        <div class="column self-center q-mx-auto">
+          <img
+            class="q-mx-auto"
+            src="../assets/app-logo.png"
+            :width="$q.screen.gt.sm ? 'auto' : '50'"
+          />
+          <div
+            :class="
+              $q.screen.gt.sm
+                ? 'text-center text-h2 text-weight-bolder text-white'
+                : 'text-center text-h5 text-weight-bolder text-white'
+            "
+          >
+            quasar warren
+          </div>
         </div>
       </div>
-    </div>
+    </transition>
     <div class="column q-gutter-y-lg q-pa-md self-center q-mx-auto">
       <div
         :class="
@@ -29,12 +39,12 @@
         Acessar minha conta
       </div>
       <label v-if="!login">E-mail</label>
-      <q-input v-if="!login" filled bottom-slots v-model="email">
+      <q-input required v-if="!login" filled bottom-slots v-model="email">
         <template v-slot:prepend>
           <q-icon name="email" />
         </template>
       </q-input>
-      <label v-if="login">Senha</label>
+      <label v-if="login">Senha para {{ email }}</label>
       <q-input v-if="login" filled bottom-slots v-model="password">
         <template v-slot:prepend>
           <q-icon name="lock" />
@@ -61,11 +71,12 @@
         </template>
       </q-btn>
       <div class="divider q-mt-lg q-mb-sm"></div>
-      <div class="row justify-center">
+      <div class="row justify-center container-login">
         <div class="col-12">
           <div class="row justify-center q-gutter-lg">
             <div class="col-5">
               <q-btn
+                v-show="!login"
                 class="float-right "
                 size="18.7px"
                 round
@@ -74,13 +85,27 @@
               />
             </div>
             <div class="col-5">
-              <q-btn class="" size="18.7px" round color="black" icon="fab fa-apple" />
+              <q-btn
+                v-show="!login"
+                class=""
+                size="18.7px"
+                round
+                color="black"
+                icon="fab fa-apple"
+              />
             </div>
             <div class="col-12 q-mt-xl">
               <div
+                v-if="!login"
                 class="text-weight-bold text-uppercase text-center cursor-pointer"
               >
                 Ainda não sou cliente
+              </div>
+              <div
+                v-else
+                class="text-weight-bold text-uppercase text-center cursor-pointer"
+              >
+                Esqueci minha senha
               </div>
             </div>
           </div>
@@ -96,20 +121,22 @@ export default {
       loading1: false,
       email: '',
       password: '',
-      login: false
+      login: false,
+      fade: true
     }
   },
   methods: {
     simulateProgress (number) {
-      // we set loading state
+      this.fade = false
       this[`loading${number}`] = true
-      // simulate a delay
       setTimeout(() => {
-        // we're done, we reset loading state
         this[`loading${number}`] = false
+        if (this.login === true) {
+          this.$router.push({ name: 'dashboard' })
+        }
         this.login = true
-        this.$router.push({ name: 'dashboard' })
-      }, 3000)
+        this.fade = true
+      }, 1000)
     }
   }
 }
@@ -117,6 +144,22 @@ export default {
 <style scoped>
 div.container-logo {
   background-color: #ee2e5d;
+}
+div.container-login {
+  width: 360px;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0.2;
+}
+@media screen and (min-width: 320px) and (max-width: 360px) {
+  div.container-login {
+    width: 320px;
+  }
 }
 @media screen and (min-width: 320px) and (max-width: 737px) {
   div.container-logo {
