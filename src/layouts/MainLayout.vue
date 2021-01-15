@@ -95,7 +95,7 @@
     <q-page-container :class="$q.screen.lt.sm ? 'bg-secondary' : 'bg-white q-px-lg'">
       <skeleton v-if="loading" />
       <transition
-         v-else
+         v-show="!loading"
         appear
         enter-active-class="animated fadeIn"
         leave-active-class="animated fadeOut"
