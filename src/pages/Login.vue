@@ -71,7 +71,7 @@
         </template>
       </q-btn>
       <div class="divider q-mt-lg q-mb-sm"></div>
-      <div class="row justify-center container-login">
+      <div class="row">
         <div class="col-12">
           <div class="row justify-center q-gutter-lg">
             <div class="col-5">
@@ -145,9 +145,6 @@ export default {
 div.container-logo {
   background-color: #ee2e5d;
 }
-div.container-login {
-  width: 360px;
-}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 1s;
@@ -155,11 +152,6 @@ div.container-login {
 .fade-enter,
 .fade-leave-to {
   opacity: 0.2;
-}
-@media screen and (min-width: 320px) and (max-width: 360px) {
-  div.container-login {
-    width: 320px;
-  }
 }
 @media screen and (min-width: 320px) and (max-width: 737px) {
   div.container-logo {
