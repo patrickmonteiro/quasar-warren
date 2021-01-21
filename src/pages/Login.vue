@@ -141,8 +141,8 @@ export default {
   }
 }
 </script>
-<style scoped>
-div.container-logo {
+<style>
+/* div.container-logo {
   background-color: #ee2e5d;
 }
 .fade-enter-active,
@@ -166,5 +166,5 @@ div.container-logo {
 }
 .divider {
   border-top: 1px solid #ebecf3;
-}
+} */
 </style>
